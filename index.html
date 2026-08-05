@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nooteo - Bientôt disponible</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #008f7a, #0066cc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    max-width: 700px;
+}
+
+.logo {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.logo span {
+    color: #ffe66d;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.box {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 100px;
+}
+
+.number {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.label {
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.footer {
+    margin-top: 50px;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+
+@media(max-width:600px){
+
+h1 {
+    font-size:30px;
+}
+
+.logo {
+    font-size:45px;
+}
+
+.box {
+    min-width:80px;
+}
+
+.number {
+    font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+Noo<span>teo</span>
+</div>
+
+
+<h1>
+Le monde découvrira bientôt Madagascar autrement
+</h1>
+
+
+<p>
+Une nouvelle plateforme arrive pour connecter voyageurs,
+hôtels et expériences uniques à Madagascar.
+</p>
+
+
+
+<div class="countdown">
+
+<div class="box">
+<div class="number" id="days">7</div>
+<div class="label">Jours</div>
+</div>
+
+
+<div class="box">
+<div class="number" id="hours">00</div>
+<div class="label">Heures</div>
+</div>
+
+
+<div class="box">
+<div class="number" id="minutes">00</div>
+<div class="label">Minutes</div>
+</div>
+
+
+<div class="box">
+<div class="number" id="seconds">00</div>
+<div class="label">Secondes</div>
+</div>
+
+</div>
+
+
+<div class="footer">
+© 2026 Nooteo - Madagascar
+</div>
+
+
+</div>
+
+
+<script>
+
+// Départ : maintenant + 7 jours
+let launchDate = new Date();
+
+launchDate.setDate(
+    launchDate.getDate() + 7
+);
+
+
+function updateCountdown(){
+
+let now = new Date().getTime();
+
+let distance = launchDate - now;
+
+
+if(distance <= 0){
+
+document.querySelector(".countdown").innerHTML =
+"<h2>Nous sommes lancés 🚀</h2>";
+
+return;
+
+}
+
+
+let days = Math.floor(distance / (1000*60*60*24));
+
+let hours = Math.floor(
+(distance % (1000*60*60*24)) /
+(1000*60*60)
+);
+
+
+let minutes = Math.floor(
+(distance % (1000*60*60)) /
+(1000*60)
+);
+
+
+let seconds = Math.floor(
+(distance % (1000*60)) /
+1000
+);
+
+
+
+document.getElementById("days").innerHTML =
+days;
+
+document.getElementById("hours").innerHTML =
+String(hours).padStart(2,'0');
+
+document.getElementById("minutes").innerHTML =
+String(minutes).padStart(2,'0');
+
+document.getElementById("seconds").innerHTML =
+String(seconds).padStart(2,'0');
+
+
+}
+
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+</script>
+
+
+</body>
+</html>
