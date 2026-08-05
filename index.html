@@ -35,6 +35,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 28px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .logo-img {
@@ -92,8 +93,32 @@ p {
     font-weight: 600;
 }
 
+.music-control {
+    margin-top: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.music-control:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.music-control span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
 .footer {
-    margin-top: 35px;
+    margin-top: 25px;
     font-size: 14px;
     display: flex;
     flex-direction: column;
@@ -174,6 +199,17 @@ p {
         </div>
     </div>
 
+    <!-- Lecteur audio / Chanson en lecture automatique et en boucle -->
+    <audio id="background-audio" loop autoplay>
+        <source src="assets/chanson.mp4" type="audio/mp4">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <div class="music-control" id="toggle-music" onclick="togglePlayMusic()">
+        <span id="music-icon">⏸️</span>
+        <span id="music-text">Pause</span>
+    </div>
+
     <div class="footer">
         <div>Contact : <a href="mailto:nooteo.team@nooteo.com">nooteo.team@nooteo.com</a></div>
         <div>© 2026 Nooteo - Madagascar. Tous droits réservés.</div>
@@ -183,8 +219,7 @@ p {
 
 <script>
 // Référence fixe alignée sur l'horloge universelle (UTC)
-// Remplacez '2026-08-15T00:00:00Z' par la date et l'heure exactes de votre lancement mondial
-const launchTime = new Date('2026-08-13T00:00:00Z').getTime();
+const launchTime = new Date('2026-08-15T00:00:00Z').getTime();
 
 function updateCountdown(){
     const now = new Date().getTime();
@@ -209,6 +244,43 @@ function updateCountdown(){
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Gestion du lecteur de musique avec tentative d'autoplay direct
+const audio = document.getElementById('background-audio');
+const musicText = document.getElementById('music-text');
+const musicIcon = document.getElementById('music-icon');
+let isPlaying = true;
+
+window.addEventListener('DOMContentLoaded', () => {
+    audio.play().then(() => {
+        musicText.textContent = "Pause";
+        musicIcon.textContent = "⏸️";
+        isPlaying = true;
+    }).catch(error => {
+        // Certains navigateurs bloquent l'autoplay sans interaction préalable de l'utilisateur
+        musicText.textContent = "Écouter la musique";
+        musicIcon.textContent = "🎵";
+        isPlaying = false;
+        console.log("Autoplay bloqué par le navigateur : interaction requise.", error);
+    });
+});
+
+function togglePlayMusic() {
+    if (isPlaying) {
+        audio.pause();
+        musicText.textContent = "Écouter la musique";
+        musicIcon.textContent = "🎵";
+        isPlaying = false;
+    } else {
+        audio.play().then(() => {
+            musicText.textContent = "Pause";
+            musicIcon.textContent = "⏸️";
+            isPlaying = true;
+        }).catch(error => {
+            console.log("Erreur lors de la lecture audio", error);
+        });
+    }
+}
 </script>
 
 </body>
