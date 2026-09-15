@@ -1,300 +1,257 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/3214badc924a7.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPBRMYQMXK"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nooteo - Voyages & Découvertes | Bientôt disponible</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    gtag('config', 'G-HPBRMYQMXK');
-    </script>
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b3c5d 0%, #1d2731 50%, #328cc1 100%);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nooteo - Voyages & Découvertes</title>
+        /* Effet de superposition sombre pour la lisibilité */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 60, 93, 0.65);
+            z-index: 1;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+        }
 
-body {
-    min-height: 100vh;
-    background: url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2400&q=80")
-    center/cover no-repeat fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #0f172a;
-    padding: 20px;
-}
+        .logo-area h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
 
-.container {
-    text-align: center;
-    padding: 40px;
-    max-width: 700px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 28px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
+        .logo-area .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #6fb9f6;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
 
-.logo-img {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    margin-bottom: 25px;
-    border-radius: 14px;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
-}
+        .icon-plane {
+            font-size: 3rem;
+            color: #6fb9f6;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    color: #0f172a;
-}
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
 
-p {
-    font-size: 16px;
-    margin-bottom: 35px;
-    line-height: 1.6;
-    color: #334155;
-}
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
 
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+        p {
+            font-size: 1rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
-.box {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    padding: 18px;
-    border-radius: 16px;
-    min-width: 95px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-}
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto 15px auto;
+            flex-wrap: wrap;
+        }
 
-.number {
-    font-size: 36px;
-    font-weight: bold;
-    color: #0f172a;
-}
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
 
-.label {
-    margin-top: 8px;
-    font-size: 13px;
-    text-transform: uppercase;
-    color: #475569;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
+        .newsletter-form input::placeholder {
+            color: #777;
+        }
 
-.music-control {
-    margin-top: 25px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 8px 16px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
+        .newsletter-form button {
+            padding: 14px 28px;
+            border-radius: 30px;
+            border: none;
+            background: #1d6fa5;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-family: 'Poppins', sans-serif;
+        }
 
-.music-control:hover {
-    background: rgba(255, 255, 255, 0.9);
-}
+        .newsletter-form button:hover {
+            background: #15557d;
+            transform: translateY(-2px);
+        }
 
-.music-control span {
-    font-size: 14px;
-    font-weight: 600;
-    color: #334155;
-}
+        #formMessage {
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            display: none;
+        }
 
-.footer {
-    margin-top: 25px;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-    color: #334155;
-}
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
 
-.footer a {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 600;
-}
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
 
-.footer a:hover {
-    text-decoration: underline;
-}
+        .social-links a:hover {
+            background: #6fb9f6;
+            transform: scale(1.1);
+        }
 
-@media(max-width:600px){
-    .container {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 24px;
-    }
-    .logo-img {
-        max-width: 200px;
-    }
-    .box {
-        min-width: 70px;
-        padding: 12px;
-    }
-    .number {
-        font-size: 26px;
-    }
-    .label {
-        font-size: 11px;
-    }
-}
-</style>
+        footer {
+            font-size: 0.8rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
+    <div class="container">
+        <div class="icon-plane">
+            <i class="fas fa-plane-departure"></i>
+        </div>
+        <div class="logo-area">
+            <h1>Nooteo</h1>
+            <div class="subtitle">Voyages & Découvertes</div>
+        </div>
+        
+        <div class="content">
+            <h2>Préparez vos valises, le grand départ approche !</h2>
+            <p>Notre site fait peau neuve pour vous offrir la plus belle des expériences de voyage sur mesure. Laissez-nous votre e-mail pour être informé en avant-première de notre ouverture.</p>
+            
+            <!-- Formulaire relié au Google Sheet -->
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" name="email" placeholder="Votre adresse email..." required>
+                <button type="submit" id="submitBtn">Être prévenu</button>
+            </form>
+            <div id="formMessage"></div>
 
-<div class="container">
-
-    <!-- Logo chargé depuis le dossier asset -->
-    <img src="assets/img.png" alt="Nooteo Logo" class="logo-img">
-
-    <h1>
-        Le monde découvrira bientôt Madagascar autrement
-    </h1>
-
-    <p>
-        Nooteo arrive pour connecter voyageurs,
-        hôtels et expériences uniques à Madagascar.
-    </p>
-
-    <div class="countdown">
-        <div class="box">
-            <div class="number" id="days">00</div>
-            <div class="label">Jours</div>
+            <div class="social-links">
+                <a href="https://web.facebook.com/profile.php?id=61589643592031" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/nooteo/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/noo.teo/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
 
-        <div class="box">
-            <div class="number" id="hours">00</div>
-            <div class="label">Heures</div>
-        </div>
-
-        <div class="box">
-            <div class="number" id="minutes">00</div>
-            <div class="label">Minutes</div>
-        </div>
-
-        <div class="box">
-            <div class="number" id="seconds">00</div>
-            <div class="label">Secondes</div>
-        </div>
+        <footer>
+            &copy; 2026 Nooteo - Tous droits réservés. (Contact : nooteo.team@nooteo.com)
+        </footer>
     </div>
 
-    <!-- Lecteur audio / Chanson en lecture automatique et en boucle -->
-    <audio id="background-audio" loop autoplay>
-        <source src="assets/chanson.mp4" type="audio/mp4">
-        Votre navigateur ne supporte pas l'élément audio.
-    </audio>
+    <script>
+        // Remplacez l'URL ci-dessous par l'URL de votre application web Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzrT58RJbGL-v5EqIrU5aPXOnjcU78hmz1MdIazYoL4sb_B44WYdn3Q8VKVGUlzbyWL3Q/exec'; 
 
-    <div class="music-control" id="toggle-music" onclick="togglePlayMusic()">
-        <span id="music-icon">⏸️</span>
-        <span id="music-text">Pause</span>
-    </div>
+        const form = document.getElementById('newsletterForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
 
-    <div class="footer">
-        <div>Contact : <a href="mailto:nooteo.team@nooteo.com">nooteo.team@nooteo.com</a></div>
-        <div>© 2026 Nooteo - Madagascar. Tous droits réservés.</div>
-    </div>
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
 
-</div>
-
-<script>
-// Référence fixe alignée sur l'horloge universelle (UTC)
-const launchTime = new Date('2026-08-17T00:08:00Z').getTime();
-
-function updateCountdown(){
-    const now = new Date().getTime();
-    const distance = launchTime - now;
-
-    if(distance <= 0){
-        document.querySelector(".countdown").innerHTML =
-        "<h2>Nous sommes lancés 🚀</h2>";
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-    document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-    document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// Gestion du lecteur de musique avec tentative d'autoplay direct
-const audio = document.getElementById('background-audio');
-const musicText = document.getElementById('music-text');
-const musicIcon = document.getElementById('music-icon');
-let isPlaying = true;
-
-window.addEventListener('DOMContentLoaded', () => {
-    audio.play().then(() => {
-        musicText.textContent = "Pause";
-        musicIcon.textContent = "⏸️";
-        isPlaying = true;
-    }).catch(error => {
-        // Certains navigateurs bloquent l'autoplay sans interaction préalable de l'utilisateur
-        musicText.textContent = "Écouter la musique";
-        musicIcon.textContent = "🎵";
-        isPlaying = false;
-        console.log("Autoplay bloqué par le navigateur : interaction requise.", error);
-    });
-});
-
-function togglePlayMusic() {
-    if (isPlaying) {
-        audio.pause();
-        musicText.textContent = "Écouter la musique";
-        musicIcon.textContent = "🎵";
-        isPlaying = false;
-    } else {
-        audio.play().then(() => {
-            musicText.textContent = "Pause";
-            musicIcon.textContent = "⏸️";
-            isPlaying = true;
-        }).catch(error => {
-            console.log("Erreur lors de la lecture audio", error);
+            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+                .then(() => {
+                    formMessage.style.display = 'block';
+                    formMessage.style.color = '#6fb9f6';
+                    formMessage.textContent = '🎉 Merci ! Votre e-mail a bien été enregistré.';
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Être prévenu';
+                })
+                .catch(error => {
+                    formMessage.style.display = 'block';
+                    formMessage.style.color = '#ff6b6b';
+                    formMessage.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Être prévenu';
+                });
         });
-    }
-}
-</script>
+    </script>
 
 </body>
 </html>
